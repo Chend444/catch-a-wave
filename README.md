@@ -43,8 +43,10 @@ To set up the project locally, follow these steps:
 
 ## API Endpoints
 
-- `/marine/city/waves/range/<cityName>` (GET): Provides wave range suggestions for a given city.
-- `/marine/city/waves/peak/<cityName>` (GET): Offers peak hour suggestions for waves in a specific city.
+- `/marine/city/waves/range/<city_name>` (GET): Provides wave range suggestions for a given city.
+- `/marine/city/waves/peak/<city_name>` (GET): Offers peak hour suggestions for waves in a specific city.
+- `/marine/city/waves/score/<city_name>` (GET): Offers hourly score for surfing in a specific city.
+
 
 ## Contributing
 
