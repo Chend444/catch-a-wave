@@ -1,15 +1,13 @@
-from flask import Flask, request, jsonify
-from api import marine_handler
+# app.py
+from flask import Flask
+from routes.marine.marine_routes import marine_bp
+from redis_config import redis  # Import the 'redis' object
 
 app = Flask(__name__)
+app.register_blueprint(marine_bp, url_prefix='/marine')
 
-@app.route('/city-check/<cityName>', methods=['GET'])
-def get_city_waves(cityName):
-    # Use a function from marine_handler to generate the response
-    response_data = marine_handler.check_city_waves(cityName)
-
-    # Return the response as JSON
-    return jsonify({'message': response_data})
+# Set Redis configuration in Flask app
+app.config['REDIS'] = redis
 
 if __name__ == '__main__':
     app.run(debug=True)
